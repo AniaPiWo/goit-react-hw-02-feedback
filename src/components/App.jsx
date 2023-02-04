@@ -34,7 +34,7 @@ class App extends React.Component {
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 30,
-          color: '#010101',
+          backgroundColor: '#010101',
         }}
       >
         <Header message="Please leave your feedback!" />
