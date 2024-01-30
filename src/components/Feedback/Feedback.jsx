@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import styles from './Feedback.module.css';
+import Statistics from 'components/Statistics/Statistics';
+import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
+import Notification from 'components/Notification/Notification';
 
 class Feedback extends Component {
   constructor(props) {
@@ -30,20 +32,22 @@ class Feedback extends Component {
 
     return (
       <div>
-        <h2>Please leave feedback</h2>
-        <div className={styles.buttons}>
-          <button onClick={this.handleGood}>Good</button>
-          <button onClick={this.handleNeutral}>Neutral</button>
-          <button onClick={this.handleBad}>Bad</button>
-        </div>
-        <div className={styles.stats}>
-          <h3>Statistics</h3>
-          <p>Good: {good}</p>
-          <p>Neutral: {neutral}</p>
-          <p>Bad: {bad}</p>
-          <p>Total: {totalFeedback}</p>
-          <p>Positive feedback: {positivePercentage.toFixed(2)}%</p>
-        </div>
+        <FeedbackOptions
+          onGood={this.handleGood}
+          onNeutral={this.handleNeutral}
+          onBad={this.handleBad}
+        />
+        {totalFeedback === 0 ? (
+          <Notification />
+        ) : (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedback}
+            positivePercentage={positivePercentage}
+          />
+        )}
       </div>
     );
   }

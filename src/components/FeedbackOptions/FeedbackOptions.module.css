@@ -1,0 +1,13 @@
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+}
+
+button {
+  background-color: inherit;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
